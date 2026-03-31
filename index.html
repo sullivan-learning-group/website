@@ -3,1084 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Sullivan - Technical Educator</title>
+    <title>Dan Sullivan — Data Engineering, Cloud & ML Courses</title>
+    <meta name="description" content="Dan Sullivan is a technical educator and author specializing in data engineering, cloud architecture, and machine learning. Explore courses on Udemy, LinkedIn Learning, and Coursera, plus certification study guides for Google Cloud.">
+    <link rel="canonical" href="https://sullivanlearninggroup.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dan Sullivan — Data Engineering, Cloud & ML Courses">
+    <meta property="og:description" content="Technical educator and author specializing in data engineering, cloud architecture, and machine learning. Courses, books, and consulting.">
+    <meta property="og:url" content="https://sullivanlearninggroup.com/">
+    <meta property="og:site_name" content="Dan Sullivan">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dan Sullivan — Data Engineering, Cloud & ML Courses">
+    <meta name="twitter:description" content="Technical educator and author specializing in data engineering, cloud architecture, and machine learning. Courses, books, and consulting.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dan Sullivan",
+        "url": "https://sullivanlearninggroup.com/",
+        "jobTitle": "Technical Educator",
+        "description": "Technical educator specializing in data engineering, cloud architecture, and machine learning with over 30 years of experience.",
+        "knowsAbout": ["Data Engineering", "Cloud Architecture", "Machine Learning", "Google Cloud Platform", "Data Science", "AI"],
+        "sameAs": [
+            "https://www.udemy.com/user/dan-sullivan-66/",
+            "https://www.linkedin.com/learning/instructors/dan-sullivan"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Technical Educator and Author"
+        }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-dark: #1e293b;
-            --color-accent-teal: #0891b2;
-            --color-accent-amber: #f59e0b;
-            --color-bg-light: #f8fafc;
-            --color-card: #ffffff;
-            --color-text-body: #334155;
-            --color-text-heading: #1e293b;
-            --color-border: #e2e8f0;
-            --color-udemy: #a435f0;
-            --color-linkedin: #0a66c2;
-            --color-coursera: #0056d2;
-            --color-orange: #ff9900;
-            --color-oreilly: #d3002d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            color: var(--color-text-body);
-            background-color: var(--color-bg-light);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            background-color: transparent;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header.scrolled {
-            background-color: var(--color-card);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-        }
-
-        header.transparent .header-logo {
-            color: var(--color-card);
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--color-text-body);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        header.transparent nav a {
-            color: var(--color-card);
-        }
-
-        nav a:hover {
-            color: var(--color-accent-teal);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 0.4rem;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--color-card);
-            transition: all 0.3s ease;
-        }
-
-        header.transparent .hamburger span {
-            background-color: var(--color-card);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background-color: var(--color-dark);
-            padding: 120px 2rem 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
-
-        .hero-content {
-            color: var(--color-card);
-        }
-
-        .hero-headline {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .hero-text p {
-            margin-bottom: 1rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--color-accent-teal);
-            color: var(--color-card);
-        }
-
-        .btn-primary:hover {
-            background-color: #0e7490;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(8, 145, 178, 0.3);
-        }
-
-        .btn-outline {
-            border: 2px solid var(--color-card);
-            color: var(--color-card);
-            background-color: transparent;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--color-card);
-            color: var(--color-accent-teal);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 50%;
-            border: 4px solid var(--color-accent-teal);
-            box-shadow: 0 0 40px rgba(8, 145, 178, 0.3);
-        }
-
-        /* Pillars Section */
-        .pillars {
-            padding: 6rem 2rem;
-            background-color: var(--color-bg-light);
-        }
-
-        .pillars-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .pillar-card {
-            background-color: var(--color-card);
-            padding: 2.5rem 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--color-accent-teal);
-        }
-
-        .pillar-card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .pillar-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pillar-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--color-text-heading);
-        }
-
-        .pillar-card p {
-            color: var(--color-text-body);
-            line-height: 1.8;
-        }
-
-        /* Experience & Education */
-        .experience-section {
-            padding: 6rem 2rem;
-            background-color: var(--color-card);
-        }
-
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-intro {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-text-body);
-            margin-bottom: 3rem;
-            max-width: 900px;
-        }
-
-        .experience-columns {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-        }
-
-        .career-column h3,
-        .education-column h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--color-accent-teal);
-            display: inline-block;
-        }
-
-        .career-phases {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .career-phase {
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--color-border);
-        }
-
-        .career-phase::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--color-accent-teal);
-        }
-
-        .phase-period {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-accent-teal);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .phase-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            margin-bottom: 0.5rem;
-        }
-
-        .phase-description {
-            color: var(--color-text-body);
-            line-height: 1.8;
-        }
-
-        .industry-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-        }
-
-        .industry-tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            background-color: rgba(8, 145, 178, 0.08);
-            color: var(--color-accent-teal);
-            border: 1px solid rgba(8, 145, 178, 0.2);
-        }
-
-        .education-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .edu-item {
-            padding: 1.5rem;
-            background-color: var(--color-bg-light);
-            border-radius: 0.5rem;
-            border-left: 4px solid var(--color-accent-teal);
-        }
-
-        .edu-degree {
-            font-weight: 700;
-            color: var(--color-text-heading);
-            margin-bottom: 0.25rem;
-        }
-
-        .edu-school {
-            color: var(--color-accent-teal);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .edu-detail {
-            font-size: 0.9rem;
-            color: var(--color-text-body);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background-color: #0f172a;
-            padding: 2rem;
-            text-align: center;
-            color: var(--color-card);
-        }
-
-        .stats-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            font-weight: 500;
-        }
-
-        .stats-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Books Section */
-        .books-section {
-            padding: 5rem 2rem;
-            background-color: var(--color-card);
-        }
-
-        .books-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .books-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            text-align: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .books-subtitle {
-            text-align: center;
-            color: var(--color-text-body);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-size: 1.05rem;
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            justify-items: center;
-        }
-
-        .books-grid .book-card:nth-child(n+5) {
-            /* Center the last row of 3 items */
-        }
-
-        .book-card {
-            background: var(--color-bg-light);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .book-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .book-cover {
-            width: 160px;
-            height: 210px;
-            object-fit: contain;
-            border-radius: 4px;
-            margin-bottom: 1.25rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .book-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--color-text-heading);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .book-publisher {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 0.5rem;
-        }
-
-        .book-description {
-            font-size: 0.85rem;
-            color: var(--color-text-body);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            flex-grow: 1;
-        }
-
-        .book-link {
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            background-color: var(--color-accent-teal);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
-        }
-
-        .book-link:hover {
-            background-color: #0e7490;
-        }
-
-        /* Catalog Section */
-        .catalog {
-            padding: 6rem 2rem;
-            background-color: var(--color-card);
-        }
-
-        .catalog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .catalog-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--color-text-heading);
-        }
-
-        .search-bar {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: 0.375rem;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--color-accent-teal);
-            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
-        }
-
-        .filters-section {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .filter-group {
-            margin-bottom: 1rem;
-        }
-
-        .filter-label {
-            font-weight: 600;
-            color: var(--color-text-heading);
-            margin-bottom: 0.5rem;
-            display: block;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .filter-pills {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .pill {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: 999px;
-            background-color: transparent;
-            color: var(--color-text-body);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .pill:hover {
-            border-color: var(--color-accent-teal);
-            color: var(--color-accent-teal);
-        }
-
-        .pill.active {
-            background-color: var(--color-accent-teal);
-            color: var(--color-card);
-            border-color: var(--color-accent-teal);
-        }
-
-        .catalog-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .result-counter {
-            font-weight: 500;
-            color: var(--color-text-body);
-        }
-
-        .clear-filters-btn {
-            background-color: transparent;
-            color: var(--color-accent-teal);
-            border: 1px solid var(--color-accent-teal);
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .clear-filters-btn.visible {
-            display: block;
-        }
-
-        .clear-filters-btn:hover {
-            background-color: var(--color-accent-teal);
-            color: var(--color-card);
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .course-card {
-            background-color: var(--color-bg-light);
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--color-border);
-        }
-
-        .course-card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .card-header {
-            padding: 1rem 1.5rem;
-            background-color: var(--color-card);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .platform-badge {
-            display: inline-block;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--color-card);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-        }
-
-        .platform-badge.udemy {
-            background-color: var(--color-udemy);
-        }
-
-        .platform-badge.linkedin {
-            background-color: var(--color-linkedin);
-        }
-
-        .platform-badge.coursera {
-            background-color: var(--color-coursera);
-        }
-
-        .platform-badge.amazon {
-            background-color: var(--color-orange);
-        }
-
-        .platform-badge.oreilly {
-            background-color: var(--color-oreilly);
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            line-height: 1.4;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-description {
-            color: var(--color-text-body);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--color-text-body);
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background-color: var(--color-accent-teal);
-            color: var(--color-card);
-            padding: 0.3rem 0.6rem;
-            border-radius: 0.25rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .stars {
-            color: var(--color-accent-amber);
-        }
-
-        .card-footer {
-            padding: 0 1.5rem 1.5rem;
-            margin-top: auto;
-            border-top: 1px solid var(--color-border);
-            padding-top: 1rem;
-        }
-
-        .view-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-accent-teal);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .view-link:hover {
-            gap: 0.75rem;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--color-text-body);
-        }
-
-        .empty-state-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text-heading);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 6rem 2rem;
-            background-color: var(--color-dark);
-            color: var(--color-card);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-card);
-            margin-bottom: 0.75rem;
-        }
-
-        .services-intro {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.85;
-            margin-bottom: 3rem;
-            max-width: 800px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.5rem;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .service-icon {
-            margin-bottom: 1.25rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--color-card);
-        }
-
-        .service-card p {
-            line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-
-        .service-examples {
-            font-size: 0.9rem;
-            opacity: 0.6;
-            font-style: italic;
-        }
-
-        .services-industries {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.04);
-            border-radius: 0.5rem;
-            border-left: 4px solid var(--color-accent-teal);
-        }
-
-        .services-industries p {
-            line-height: 1.8;
-            opacity: 0.85;
-        }
-
-        .services-industries strong {
-            color: var(--color-accent-teal);
-            font-weight: 600;
-        }
-
-        .services-cta {
-            text-align: center;
-            padding-top: 1rem;
-        }
-
-        .services-cta p {
-            opacity: 0.7;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .btn-services {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            background-color: var(--color-accent-teal);
-            color: var(--color-card);
-            text-decoration: none;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-services:hover {
-            background-color: #0e7490;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-dark);
-            color: var(--color-card);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            opacity: 0.8;
-            line-height: 1.8;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            color: var(--color-accent-teal);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-link:hover {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .experience-columns {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: var(--color-card);
-                flex-direction: column;
-                padding: 1rem;
-                gap: 0.5rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav.active a {
-                color: var(--color-text-heading) !important;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero {
-                padding: 100px 1rem 3rem;
-            }
-
-            .hero-headline {
-                font-size: 2rem;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .pillars-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
-            .books-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .stats-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pillars-grid {
-                grid-template-columns: 1fr !important;
-            }
-
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-headline {
-                font-size: 1.5rem;
-            }
-
-            .catalog-title {
-                font-size: 1.75rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            header {
-                padding: 1rem;
-            }
-
-            nav {
-                top: 50px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -1101,6 +62,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero" id="about">
         <div class="hero-container">
@@ -1162,49 +124,49 @@
                     <h3>Simulation Models for Data Science</h3>
                     <p class="book-publisher">O'Reilly Media &middot; 350 pages</p>
                     <p class="book-description">Introduction to Monte Carlo methods, discrete event simulation, system dynamics, and agent-based modeling for data science and operations research.</p>
-                    <a href="https://www.oreilly.com/library/view/simulation-models-for/0642572251215/" target="_blank" class="book-link">View on O'Reilly</a>
+                    <a href="https://www.oreilly.com/library/view/simulation-models-for/0642572251215/" target="_blank" rel="noopener noreferrer" class="book-link">View on O'Reilly</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/81SwsFQk7rL._SL1500_.jpg" alt="Google Cloud Certified Associate Cloud Engineer Study Guide">
                     <h3>Google Cloud Certified Associate Cloud Engineer Study Guide</h3>
                     <p class="book-publisher">Sybex/Wiley &middot; 2nd Edition &middot; 576 pages</p>
                     <p class="book-description">Comprehensive coverage of every domain and competency tested by the Associate Cloud Engineer exam, with review questions and practice tests.</p>
-                    <a href="https://www.amazon.com/Google-Cloud-Certified-Associate-Engineer/dp/1119871441" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/Google-Cloud-Certified-Associate-Engineer/dp/1119871441" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/81vE3-DbVxL._SL1500_.jpg" alt="Google Cloud Certified Professional Cloud Architect Study Guide">
                     <h3>Google Cloud Certified Professional Cloud Architect Study Guide</h3>
                     <p class="book-publisher">Sybex/Wiley &middot; 2nd Edition &middot; 368 pages</p>
                     <p class="book-description">Proven roadmap to success on the Professional Cloud Architect exam, covering Kubernetes, Anthos, and multi-cloud architectures.</p>
-                    <a href="https://www.amazon.com/Google-Cloud-Certified-Professional-Architect/dp/1119871050" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/Google-Cloud-Certified-Professional-Architect/dp/1119871050" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/61NHwroDLoL._SL1254_.jpg" alt="Official Google Cloud Certified Professional Data Engineer Study Guide">
                     <h3>Official Google Cloud Certified Professional Data Engineer Study Guide</h3>
                     <p class="book-publisher">Sybex/Wiley &middot; 352 pages</p>
                     <p class="book-description">Complete preparation for the Google Cloud Professional Data Engineer exam with practice tests and review questions.</p>
-                    <a href="https://www.amazon.com/Official-Google-Certified-Professional-Engineer/dp/1119618436" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/Official-Google-Certified-Professional-Engineer/dp/1119618436" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/51oVrTl7bWL.jpg" alt="NoSQL for Mere Mortals">
                     <h3>NoSQL for Mere Mortals</h3>
                     <p class="book-publisher">Addison-Wesley &middot; 542 pages</p>
                     <p class="book-description">The clearest, simplest guide to solving real problems with NoSQL, covering all four main categories of NoSQL databases.</p>
-                    <a href="https://www.amazon.com/NoSQL-Mere-Mortals-Dan-Sullivan/dp/0134023218" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/NoSQL-Mere-Mortals-Dan-Sullivan/dp/0134023218" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/5199HEK3YLL.jpg" alt="Document Warehousing and Text Mining">
                     <h3>Document Warehousing and Text Mining</h3>
                     <p class="book-publisher">Wiley &middot; 560 pages</p>
                     <p class="book-description">How to build document warehouses, organize free-form text for easy access, and exploit text mining techniques for decision-makers.</p>
-                    <a href="https://www.amazon.com/Document-Warehousing-Text-Mining-Techniques/dp/0471399590" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/Document-Warehousing-Text-Mining-Techniques/dp/0471399590" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
                 <div class="book-card">
                     <img class="book-cover" src="https://m.media-amazon.com/images/I/71Umk833aNL._SL1360_.jpg" alt="Proven Portals">
                     <h3>Proven Portals</h3>
                     <p class="book-publisher">Addison-Wesley &middot; 224 pages</p>
                     <p class="book-description">Best practices for planning, designing, and developing enterprise portals to improve collaboration, communication, and decision-making.</p>
-                    <a href="https://www.amazon.com/Proven-Portals-Practices-Developing-Enterprise/dp/0321125207" target="_blank" class="book-link">View on Amazon</a>
+                    <a href="https://www.amazon.com/Proven-Portals-Practices-Developing-Enterprise/dp/0321125207" target="_blank" rel="noopener noreferrer" class="book-link">View on Amazon</a>
                 </div>
             </div>
         </div>
@@ -1400,6 +362,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -1410,8 +374,8 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <div class="footer-links">
-                     <a href="https://www.udemy.com/user/dan-sullivan-66/" class="footer-link" target="_blank">Udemy Profile</a>
-                    <a href="https://www.linkedin.com/learning/instructors/dan-sullivan?u=2125562" class="footer-link" target="_blank">LinkedIn Learning</a>               </div>
+                     <a href="https://www.udemy.com/user/dan-sullivan-66/" class="footer-link" target="_blank" rel="noopener noreferrer">Udemy Profile</a>
+                    <a href="https://www.linkedin.com/learning/instructors/dan-sullivan?u=2125562" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn Learning</a>               </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -2236,7 +1200,7 @@
                     ${ratingHtml}
                 </div>
                 <div class="card-footer">
-                    <a href="${course.url}" target="_blank" class="view-link">View →</a>
+                    <a href="${course.url}" target="_blank" rel="noopener noreferrer" class="view-link">View →</a>
                 </div>
             `;
 
