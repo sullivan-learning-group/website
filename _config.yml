@@ -1,0 +1,27 @@
+# Site settings
+title: Dan Sullivan
+description: "Data Engineering, Cloud & ML Courses"
+url: "https://sullivanlearninggroup.com"
+baseurl: ""
+
+# Blog / permalink structure
+permalink: /blog/:year/:month/:day/:title/
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude files from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules

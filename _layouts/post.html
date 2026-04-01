@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} — Dan Sullivan</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:site_name" content="Dan Sullivan">
+    {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="scrolled" id="header">
+        <div class="header-logo"><a href="{{ '/' | relative_url }}" style="text-decoration:none;color:inherit;">Dan Sullivan</a></div>
+        <nav id="nav-menu">
+            <a href="{{ '/' | relative_url }}#about">About</a>
+            <a href="{{ '/' | relative_url }}#books">Books</a>
+            <a href="{{ '/' | relative_url }}#catalog">Courses</a>
+            <a href="{{ '/blog/' | relative_url }}" style="color:var(--color-accent-teal);">Blog</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <article class="blog-post-page">
+            <div class="blog-post-header">
+                <div class="blog-post-header-content">
+                    {% if page.tags.size > 0 %}
+                    <div class="blog-post-tags-top">
+                        {% for tag in page.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <h1 class="blog-post-title">{{ page.title }}</h1>
+                    <div class="blog-post-meta">
+                        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                        {% if page.read_time %}<span>&middot;</span><span>{{ page.read_time }} min read</span>{% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-post-body">
+                {{ content }}
+            </div>
+
+            <div class="blog-post-footer">
+                <a href="{{ '/blog/' | relative_url }}" class="view-link">&larr; Back to all posts</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Dan Sullivan</h3>
+                <p class="footer-text">Technical educator specializing in data engineering, cloud architecture, and machine learning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <div class="footer-links">
+                    <a href="{{ '/' | relative_url }}" class="footer-link">Home</a>
+                    <a href="{{ '/blog/' | relative_url }}" class="footer-link">Blog</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ site.time | date: "%Y" }} Dan Sullivan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        }
+    </script>
+</body>
+</html>
