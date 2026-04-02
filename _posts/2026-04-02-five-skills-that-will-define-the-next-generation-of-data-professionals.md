@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Five Skills That Will Define the Next Generation of Data Professionals"
+date: 2026-04-02
+tags: [AI, AI Goveranace, Simulation, Spec-Drive Development]
+read_time: 10
+---
 # Five Skills That Will Define the Next Generation of Data Professionals
 
 You've put in the work. You know Python. You can build a pipeline, train a model, write a SQL query for the most complex business questions. You've watched the field evolve from Excel to Hadoop to Spark to the cloud, and you've kept pace with every shift.
